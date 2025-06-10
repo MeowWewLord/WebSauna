@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Управление Arduino-LED</title>
+<style>
+  body  {display:flex;justify-content:center;align-items:center;height:100vh;background:#f6f7fb;font-family:Arial;}
+  button{padding:1rem 2.5rem;font-size:1.8rem;border-radius:10px;border:none;background:#007bff;color:#fff;cursor:pointer;transition:all .1s;}
+  button:active{transform:scale(0.97);}
+</style>
+</head>
+<body>
+  <button id="blink">Мигнуть LED</button>
+
+<script>
+document.getElementById('blink').onclick = () =>
+  fetch('/toggle')
+    .then(r => r.text())
+    .then(t => alert(t))
+    .catch(e => alert('Ошибка: ' + e));
+</script>
+</body>
+</html>
